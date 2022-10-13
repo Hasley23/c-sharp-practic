@@ -1,0 +1,13 @@
+﻿Random rand = new Random();
+int a = rand.Next(1,10);
+int b = rand.Next(1,10);
+int c = rand.Next(1,10);
+int d = rand.Next(1,10);
+int e = rand.Next(1,10);
+Console.WriteLine("Дан набор гирь: " + a + " " + b + " " + c + " " + d + " " + e);
+int max = a;
+if(b>max) max=b;
+if(c>max) max=c;
+if(d>max) max=d;
+if(e>max) max=e;
+Console.WriteLine("Максимальный вес: " + max);
