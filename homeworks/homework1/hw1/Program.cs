@@ -1,2 +1,30 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿/* 13.10.22
+    Задача 1. Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
+    Решение: В условии не сказано, какие именно число должна принимать программа, поэтому выбран тип float 
+    (число с плавающей запятой одинарной точности).
+    Алгоритм: Начало->Ввод чисел A, B->Сравнение арифметическим оператором->Вывод большего числа на экран
+*/
+// Объявление, первичная инициализация и вывод запроса о вводе
+float fA = 0.0f,fB = 0.0f;
+Console.WriteLine("Последовательно введите 2 числа, разделяя их клавишей ввода:");
+
+// Чтение данных (допускаем null, так как литерал его допускает)
+string? sA = Console.ReadLine();
+string? sB = Console.ReadLine();
+
+// Цикл с проверкой корректности ввода
+while(true)
+    if (float.TryParse(sA, out fA) && float.TryParse(sB, out fB))
+        break;
+    else {
+        Console.WriteLine("Ошибка ввода!");
+        return;
+    }
+
+// Условие задачи
+if (fA>fB)
+    Console.WriteLine($"{fA} > {fB}");
+else if (fA<fB)
+    Console.WriteLine($"{fA} < {fB}");
+else
+    Console.WriteLine($"{fA} = {fB}");
