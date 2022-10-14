@@ -107,10 +107,13 @@ int iNum;
 if (int.TryParse(Console.ReadLine(), out iNum)){
     //Условие задачи
     for(int i = 1; i <= iNum; i++){
-        if (i % 2 == 0 && i != iNum)
+        if (i % 2 == 0) {
+            if (i == iNum || i + 1 == iNum){
+                Console.Write($"{i}.");
+                return;
+            }
             Console.Write($"{i}, ");
-        if (i == iNum)
-            Console.Write($"{i}.");
+        }
     }      
 } else {
     Console.WriteLine("Ошибка ввода!");
