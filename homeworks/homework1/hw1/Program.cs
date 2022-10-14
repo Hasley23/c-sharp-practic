@@ -80,7 +80,7 @@ Console.WriteLine($"Среди чисел {fArray[0]}; {fArray[1]}; {fArray[2]} 
     -3 -> нет
     7 -> нет
 */
-
+/*
 // Вывод запроса о вводе числа
 Console.Write("Введите число: ");
 // Чтение числа
@@ -92,6 +92,28 @@ if (int.TryParse(Console.ReadLine(), out iNum)){
         Console.WriteLine($"Число {iNum} является чётным!");
     else
         Console.WriteLine($"Число {iNum} не является чётным!");
+} else {
+    Console.WriteLine("Ошибка ввода!");
+    return;
+}
+*/
+/*
+    Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
+*/
+Console.Write("Введите число: ");
+// Чтение числа
+int iNum;
+// Проверка корректности ввода
+if (int.TryParse(Console.ReadLine(), out iNum)){
+    //Условие задачи
+    for(int i = 1; i <= iNum; i++){
+        if (i % 2 == 0){
+            if (i == iNum)
+                Console.Write($"{i}.");
+            else
+                Console.Write($"{i}, ");
+        }
+    }      
 } else {
     Console.WriteLine("Ошибка ввода!");
     return;
