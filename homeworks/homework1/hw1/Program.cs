@@ -28,6 +28,7 @@ while(true){
     else break;
 }
 
+
 // Строка вывода
 string sOutput;
 
