@@ -27,6 +27,10 @@ while(true){
     }
     else break;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> inWork
 
 // Строка вывода
 string sOutput;

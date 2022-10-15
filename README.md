@@ -7,3 +7,5 @@
 ![Не удалось загрузить](/homeworks/homework1/hw1_2.png)
 ![Не удалось загрузить](/homeworks/homework1/hw1_3.png)
 ![Не удалось загрузить](/homeworks/homework1/hw1_4.png)
+
+**Дз 2**...
