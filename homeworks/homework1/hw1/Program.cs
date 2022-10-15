@@ -3,25 +3,30 @@
     Решение: В условии не сказано, какие именно число должна принимать программа, поэтому выбран тип float 
     (число с плавающей запятой одинарной точности).
 */
-/*
+
 // Вывод запроса о вводе 2х чисел
 Console.WriteLine("Последовательно введите 2 числа, разделяя их клавишей ввода:");
 
-// Чтение данных (допускаем null, так как литерал его допускает)
-string? sA = Console.ReadLine();
-string? sB = Console.ReadLine();
-
+// Объявление строк
+string? sA = null, sB = null;
 // Объявление и начальная инициализация чисел fA, fB
 float fA = 0.0f,fB = 0.0f;
-
 // Цикл с проверкой корректности ввода
-while(true)
-    if (float.TryParse(sA, out fA) && float.TryParse(sB, out fB))
-        break;
-    else {
-        Console.WriteLine("Ошибка ввода!");
-        return;
+while(true){
+    bool flag = true;
+    // Чтение данных (допускаем null, так как литерал его допускает)
+    sA = Console.ReadLine();
+    if (!float.TryParse(sA, out fA))
+        flag = false;
+    sB = Console.ReadLine();
+    if (!float.TryParse(sB, out fB))
+        flag = false;
+    if (!flag){
+        Console.WriteLine("Ошибка ввода! Введите чила заново, разделяя их клавишей Enter: ");
+        continue;
     }
+    else break;
+}
 
 // Строка вывода
 string sOutput;
@@ -36,7 +41,7 @@ else
 
 // Вывод результата
 Console.WriteLine(sOutput);
-*/
+
 /*
     Задача 2. Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
 */
@@ -45,7 +50,7 @@ Console.WriteLine(sOutput);
 Console.WriteLine("Последовательно введите 3 числа, разделяя их клавишей ввода:");
 
 // Чтение данных (допускаем null, так как литерал его допускает)
-string?[] sArray = {Console.ReadLine(),Console.ReadLine(),Console.ReadLine()};
+string?[] sArray = new string?[3]; //= {Console.ReadLine(),Console.ReadLine(),Console.ReadLine()};
 
 // Объявление массива чисел
 float[] fArray = new float[3];
@@ -53,12 +58,12 @@ float[] fArray = new float[3];
 // Цикл с проверкой корректности ввода
 int i = 0;
 while(i<3){
-    if (float.TryParse(sArray[i], out fArray[i])){
+    if (float.TryParse(Console.ReadLine(), out fArray[i])){
         i++;
     }
     else{
-        Console.WriteLine("Ошибка ввода!");
-        return;
+        Console.Write("Ошибка введите число повторно: ");
+        continue;
     }
 }
 
@@ -70,9 +75,8 @@ while(i<3) {
         indexMax = i;
     i++;
 }
-
 // Вывод результата
-Console.WriteLine($"Среди чисел {fArray[0]}; {fArray[1]}; {fArray[2]} максимальным является {fArray[indexMax]}");
+Console.WriteLine($"Среди чисел {fArray[0]}; {fArray[1]}; {fArray[2]} наибольшим является {fArray[indexMax]}");
 */
 /*
     Задача 3. Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
@@ -83,39 +87,37 @@ Console.WriteLine($"Среди чисел {fArray[0]}; {fArray[1]}; {fArray[2]} 
 /*
 // Вывод запроса о вводе числа
 Console.Write("Введите число: ");
-// Чтение числа
+// Объявление переменной
 int iNum;
 // Проверка корректности ввода
-if (int.TryParse(Console.ReadLine(), out iNum)){
-    //Условие задачи
-    if (iNum % 2 == 0)
-        Console.WriteLine($"Число {iNum} является чётным!");
-    else
-        Console.WriteLine($"Число {iNum} не является чётным!");
-} else {
-    Console.WriteLine("Ошибка ввода!");
-    return;
+while(!int.TryParse(Console.ReadLine(), out iNum)) {
+    Console.Write("Ошибка ввода! Введите повторно: ");
 }
+//Условие задачи
+if (iNum % 2 == 0)
+    Console.WriteLine($"Число {iNum} является чётным!");
+else
+    Console.WriteLine($"Число {iNum} не является чётным!");
 */
 /*
     Задача 4. Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
 */
+/*
 Console.Write("Введите число: ");
 // Число (N)
 int iNum;
 // Проверка корректности ввода
-if (int.TryParse(Console.ReadLine(), out iNum)){
-    //Условие задачи
-    for(int i = 1; i <= iNum; i++){
-        if (i % 2 == 0) {
-            if (i == iNum || i + 1 == iNum){
-                Console.Write($"{i}.");
-                return;
-            }
-            Console.Write($"{i}, ");
-        }
-    }      
-} else {
-    Console.WriteLine("Ошибка ввода!");
-    return;
+while(!int.TryParse(Console.ReadLine(), out iNum)) {
+    Console.Write("Ошибка ввода! Введите повторно: ");
 }
+//Условие задачи
+for(int i = 1; i <= iNum; i++){
+    if (i % 2 == 0) {
+        if (i == iNum || i + 1 == iNum){
+            Console.Write($"{i}.");
+            return;
+        }
+        Console.Write($"{i}, ");
+    }
+}
+*/
