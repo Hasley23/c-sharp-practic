@@ -48,13 +48,36 @@ switch (iTaskChoice){
         Console.WriteLine("\nЗадание 2.");
         // цикл ввода для задачи 2
         while(true) {
-            
+            Console.Write("Введите число (минимум 3 знака): ");
+            sInput = Console.ReadLine();
+            if (!int.TryParse(sInput,out iInput)) {
+                Console.WriteLine("Ошибка ввода!");
+                continue;
+            }
+            int iTemp = taskTwo(iInput);
+            if (iTemp == -3) {
+                Console.WriteLine($"У числа {sInput} нет третьей цифры!");
+                return;
+            }
+            Console.WriteLine($"Третья цифра числа {iInput}: {iTemp}");
             break;
         }
         break;
     case 3:
         Console.WriteLine("\nЗадание 3.");
-        //res = taskThree(1);
+        char ch;
+        // цикл ввода для задания 3
+        while(true){
+            Console.WriteLine("Введите день недели (цифру, обозначающую его): ");
+            ch = Console.ReadKey().KeyChar;
+            string res = taskThree(ch);
+            if (res == "#") {
+                Console.WriteLine("\nОшибка ввода!");
+                continue;
+            }
+            Console.WriteLine("\n" + res);
+            break;
+        }
         break;
     default:
         Console.WriteLine("\nНеверный номер задания!\n");
@@ -75,17 +98,41 @@ int taskOne(int TDnum){
     Задача 2. Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
 */
 int taskTwo(int TDnum){
-    string sNum = TDnum.ToString();
-    if (sNum.Length < 3)
-        return -1;
-    else {
-        return TDnum % 10;
+    int cut = 0;
+    int cutted = 0;
+    if (iInput.ToString().Length < 3) {
+        return -3;
+    } else if (sInput.Length > 2) {
+        cut = iInput.ToString().Length - 3;
+        cutted = iInput;
+        while(cut>0){
+            cutted/=10;
+            cut--;
+        }
     }
+    return cutted % 10;
 }
 
 /*
     Задача 3. Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
 */
-int taskThree(int TDnum){
-    return 0;
+string taskThree(char ch){
+    switch(ch){
+        case '1':
+            return "Понедельник, не выходной";
+        case '2':
+            return "Вторник, не выходной";
+        case '3':
+            return "Среда, не выходной";
+        case '4':
+            return "Четверг, не выходной";
+        case '5':
+            return "Пятница, не выходной";
+        case '6':
+            return "Суббота, выходной";
+        case '7':
+            return "Воскресенье, выходной";
+        default:
+            return "#";
+    }
 }
