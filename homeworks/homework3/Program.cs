@@ -67,7 +67,7 @@ void distanceFinder() {
     double distance = Math.Sqrt(Math.Pow(tdArray[3] - tdArray[0], 2) + 
                                 Math.Pow(tdArray[4] - tdArray[1], 2) +
                                 Math.Pow(tdArray[5] - tdArray[2], 2));
-    Console.WriteLine($"Расстояние между точками ({tdArray[0]};{tdArray[1]};{tdArray[2]}) и ({tdArray[3]};{tdArray[4]};{tdArray[5]}): {distance}");
+    Console.WriteLine($"Расстояние между точками ({tdArray[0]};{tdArray[1]};{tdArray[2]}) и ({tdArray[3]};{tdArray[4]};{tdArray[5]}): {Math.Round(distance, 2)}");
 }
 
 // complex solustion for the third task
