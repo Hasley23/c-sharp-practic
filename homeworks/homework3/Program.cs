@@ -34,24 +34,59 @@ while(true){
 void palindumber(){
     int[] fdArray = new int[5];
     int i = 1;
-    Console.Write("\n");
     while(i - 1 < fdArray.Length) {
-        Console.Write($"Введите цифру {i}: ");
-        if (!int.TryParse(Console.ReadLine(), out fdArray[i - 1])){
+        Console.Write($"\nВведите цифру {i}: ");
+        char ch = Console.ReadKey().KeyChar;
+        if (!int.TryParse(ch.ToString(), out fdArray[i - 1])){
             Console.WriteLine("Некорректный ввод! Ожидось число.");
             continue;
         }
         i++;
     }
-    string ans = $"Число {fdArray[0]}{fdArray[1]}{fdArray[2]}{fdArray[3]}{fdArray[4]} ";
+    string ans = $"\nЧисло {fdArray[0]}{fdArray[1]}{fdArray[2]}{fdArray[3]}{fdArray[4]} ";
     if (!(fdArray[0] == fdArray[4] &&
         fdArray[1] == fdArray [3]))
         ans+="не ";
     Console.WriteLine(ans+"является палиндромом!");
 }
 
+// complex solution for the second task
+void distanceFinder() {
+    double[] tdArray = new double[6];
+    int i = 1;
+    Console.WriteLine("\nВведите последовательно координаты двух точек вида (a,b,c):");
+    while(i - 1 < tdArray.Length) {
+        Console.Write($"Введите число с плавающей запятой двойной точности {i}: ");
+        if (!double.TryParse(Console.ReadLine(), out tdArray[i - 1])){
+            Console.WriteLine("Некорректный ввод! Ожидось число с плавающей запятой двойной точности.");
+            continue;
+        }
+        i++;
+    }
+    // 3D distance formula directly from wiki :)
+    double distance = Math.Sqrt(Math.Pow(tdArray[3] - tdArray[0], 2) + 
+                                Math.Pow(tdArray[4] - tdArray[1], 2) +
+                                Math.Pow(tdArray[5] - tdArray[2], 2));
+    Console.WriteLine($"Расстояние между точками ({tdArray[0]};{tdArray[1]};{tdArray[2]}) и ({tdArray[3]};{tdArray[4]};{tdArray[5]}): {distance}");
+}
+
+// complex solustion for the third task
+void qubeTables() {
+
+}
+
+// selector
 switch(iTaskChoice){
     case 1:
         palindumber(); 
         break;
+    case 2:
+        distanceFinder();
+        break;
+    case 3:
+        qubeTables();
+        break;
+    default:
+        Console.WriteLine("Задание не найдено! Выход...");
+        return;
 }
