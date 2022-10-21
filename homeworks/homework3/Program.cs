@@ -72,7 +72,18 @@ void distanceFinder() {
 
 // complex solustion for the third task
 void qubeTables() {
-
+    int integer;
+    Console.WriteLine("\n");
+    while(true){
+        Console.Write("Введите целое число: ");
+        if (!int.TryParse(Console.ReadLine(),out integer)){
+            Console.WriteLine("Некорректный ввод!");
+            continue;
+        }
+        else break;
+    }
+    for (int i = 1; i <= integer;i++)
+        Console.WriteLine($"{i}^3 = {i*i*i}"); // it must work faster than Math.Pow
 }
 
 // selector
